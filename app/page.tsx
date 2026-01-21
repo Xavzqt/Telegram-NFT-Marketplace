@@ -1,8 +1,6 @@
-import { getCurrentUser } from "@/lib/auth";
+import { NFT_ITEMS } from "@/lib/nfts";
 import HomeClient from "./HomeClient";
 
-export default async function HomePage() {
-  const user = await getCurrentUser();
-
-  return <HomeClient user={user} />;
+export default function HomePage() {
+  return <HomeClient/>;
 }
