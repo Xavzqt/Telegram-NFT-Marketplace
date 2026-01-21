@@ -4,17 +4,7 @@ import Link from "next/link";
 import { texts } from "@/lib/i18n";
 import { useLang } from "./context/LanguageProvider";
 
-type Props = {
-  user: {
-    id: number;
-    first_name: string;
-    last_name?: string;
-    username?: string;
-    photo_url?: string;
-  } | null;
-};
-
-export default function HomeClient({ user }: Props) {
+export default function HomeClient() {
   const { lang } = useLang();
   const t = texts[lang];
 
