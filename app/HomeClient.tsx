@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import TelegramLoginButton from "./components/TelegramLoginButton";
 import { texts } from "@/lib/i18n";
 import { useLang } from "./context/LanguageProvider";
 
@@ -48,26 +47,6 @@ export default function HomeClient({ user }: Props) {
             >
               {t.how_it_works_btn}
             </a>
-          </div>
-
-          <div className="mt-4">
-            {user ? (
-              <div className="rounded-xl border border-slate-800 bg-slate-900/60 px-3 py-2 text-xs text-slate-200">
-                <div className="text-[11px] text-slate-400">
-                  {t.login_logged_in_as}
-                </div>
-                <div className="mt-0.5 font-medium">
-                  {user.first_name} {user.last_name ?? ""}{" "}
-                  {user.username && (
-                    <span className="text-slate-400">
-                      ({`@${user.username}`})
-                    </span>
-                  )}
-                </div>
-              </div>
-            ) : (
-              <TelegramLoginButton />
-            )}
           </div>
         </div>
 
