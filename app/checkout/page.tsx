@@ -1,10 +1,12 @@
 export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
+import { getNftById } from "@/lib/nfts";
 import Image from "next/image";
-import { getNftById, NFT_ITEMS } from "@/lib/nfts";
 
 type OrderPayload = {
   productId: string;
