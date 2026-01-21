@@ -15,7 +15,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* Telegram WebApp SDK */}
+        <script src="https://telegram.org/js/telegram-web-app.js"></script>
+      </head>
       <body className="bg-slate-950 text-slate-50">
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (window.Telegram && window.Telegram.WebApp) {
+                window.Telegram.WebApp.ready();
+                window.Telegram.WebApp.expand();
+              }
+            `,
+          }}
+        />
+
         <LanguageProvider>
           <div className="min-h-screen flex flex-col">
             <header className="border-b border-slate-800 bg-slate-950/80 backdrop-blur">
@@ -52,7 +67,6 @@ export default function RootLayout({
                       Profile
                     </a>
                   </nav>
-                  {/* Client language toggle */}
                   <LangToggle />
                 </div>
               </div>
